@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        
+        html, body{
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+        
+        .cube{
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            transform-style: preserve-3d;
+            font-size: 100px;
+            line-height: 200px;
+            text-align: center;
+            color: #333;
+            animation: test 3s ease-in-out infinite;
+        }
+        
+        .face{
+            width: 200px;
+            height: 200px;
+            border: 1px #ccc dashed;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .f1{
+            transform: translateZ(100px);
+            background: rgba(240, 15, 31, 0.5);
+        }
+        
+        .f2{
+            transform: translateZ(-100px);
+            background: rgba(240, 15, 174, 0.5);
+        }
+        
+        .f3{
+            transform: rotateX(90deg) translateZ(100px);
+            background: rgba(147, 15, 240, 0.5);
+        }
+        
+        .f4{
+            transform: rotateX(90deg) translateZ(-100px);
+            background: rgba(15, 100, 240, 0.5);
+        }
+        
+        .f5{
+            transform: rotateY(90deg) translateZ(100px);
+            background: rgba(15, 240, 142, 0.5);
+        }
+        
+        .f6{
+            transform: rotateY(90deg) translateZ(-100px);
+            background: rgba(179, 240, 15, 0.5);
+        }
+        
+        @keyframes test{
+            0%{
+				transform: rotate3d(1, 0, 1, 0deg);
+			}
+			
+			100%{
+				transform: rotate3d(0, 1, 1, 360deg);
+			}
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="face f1">1</div>
+        <div class="face f2">2</div>
+        <div class="face f3">3</div>
+        <div class="face f4">4</div>
+        <div class="face f5">5</div>
+        <div class="face f6">6</div>
+    </div>
+</body>
+</html>
