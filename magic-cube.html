@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        html, body{
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: perspective(1200px);
+        }
+        
+        .cube{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            left: 40%;
+            top: 20%;
+            transform-style: preserve-3d;
+            transform: rotate3d(1, 0, 1, 45deg);
+        }
+        
+        .face{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .f1{
+            background: red;
+            transform: translateZ(25px);
+        }
+        
+        .f2{
+            background: yellow;
+            transform: rotateX(90deg) translateZ(-25px);
+        }
+        
+        .f3{
+            background: blue;
+            transform: rotateY(90deg) translateZ(25px);    
+        }
+        
+        .c1{
+            transform: rotate3d(1, 0, 1, 45deg);
+            animation: c1 3s linear infinite;
+        }
+        
+        .c2{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 0, -50px);
+            animation: c2 3s linear infinite;
+        }
+        
+        .c3{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 0, -100px);
+            animation: c3 3s linear infinite;
+        }
+        
+        .c4{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, 0);
+            animation: c4 3s linear infinite;
+        }
+        
+        .c5{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -50px);
+            animation: c5 3s linear infinite;
+        }
+        
+        .c6{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -100px);
+            animation: c6 3s linear infinite;
+        }
+        
+        .c7{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, 0);
+            animation: c7 3s linear infinite;
+        }
+        
+        .c8{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, -50px);
+            animation: c8 3s linear infinite;
+            
+        }
+        
+        .c9{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, -100px);
+            animation: c9 3s linear infinite;
+        }
+        
+        .c10{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, 0);
+            animation: c10 3s linear infinite;
+        }
+        
+        .c11{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -50px);
+            animation: c11 3s linear infinite;
+        }
+        
+        .c12{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -100px);
+            animation: c12 3s linear infinite;
+        }
+        
+        .c13{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, 0);
+            animation: c13 3s linear infinite;
+        }
+        
+        .c14{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, -50px);
+        }
+        
+        .c15{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, -100px);
+            animation: c15 3s linear infinite;
+        }
+        
+        .c16{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, 0);
+            animation: c16 3s linear infinite;
+        }
+        
+        .c17{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -50px);
+            animation: c17 3s linear infinite;
+        }
+        
+        .c18{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -100px);
+            animation: c18 3s linear infinite;
+        }
+        
+        .c19{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, 0);
+            animation: c19 3s linear infinite;
+        }
+        
+        .c20{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, -50px);
+            animation: c20 3s linear infinite;
+        }
+        
+        .c21{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, -100px);
+            animation: c21 3s linear infinite;
+        }
+        
+        .c22{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, 0);
+            animation: c22 3s linear infinite;
+        }
+        
+        .c23{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -50px);
+            animation: c23 3s linear infinite;
+        }
+        
+        .c24{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -100px);
+            animation: c24 3s linear infinite;
+        }
+        
+        .c25{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, 0);
+            animation: c25 3s linear infinite;
+        }
+        
+        .c26{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, -50px);
+            animation: c26 3s linear infinite;
+        }
+        
+        .c27{
+            transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, -100px);
+            animation: c27 3s linear infinite;
+        }
+        
+        @keyframes c1{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 0, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, -70px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, -70px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, -70px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 0, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg); 
+            }
+        }
+        
+        @keyframes c2{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 0, -50px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 0, -50px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, -70px, -50px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, -70px, -50px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, -70px, -50px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 0, -50px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg)  translate3d(0, 0, -50px); 
+            }
+        }
+        
+        @keyframes c3{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 0, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 0, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, -70px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, -70px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, -70px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 0, -170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 0, -100px); 
+            }
+        }
+        
+        @keyframes c4{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, 0); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, 0); 
+            }
+        }
+        
+        @keyframes c5{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -50px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -50px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, -50px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, -50px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, -50px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -50px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -50px); 
+            }
+        }
+        
+        @keyframes c6{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, -70px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 0, -100px); 
+            }
+        }
+        
+        @keyframes c7{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, 0); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 0, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, -70px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, -70px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, -70px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, 0); 
+            }
+        }
+        
+        @keyframes c8{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, -50px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 0, -50px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, -70px, -50px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, -70px, -50px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, -70px, -50px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, -50px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, -50px); 
+            }
+        }
+        
+        @keyframes c9{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 0, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, -70px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, -70px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, -70px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, -170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 0, -100px); 
+            }
+        }
+        
+        @keyframes c10{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, 0); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, 0); 
+            }
+        }
+        
+        @keyframes c11{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -50px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, -50px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, -50px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, -50px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -50px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -50px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -50px); 
+            }
+        }
+        
+        @keyframes c12{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 50px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 50px, -100px); 
+            }
+        }
+        
+        @keyframes c13{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, 0); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, 0); 
+            }
+        }
+        
+        @keyframes c15{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, =170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 50px, -100px); 
+            }
+        }
+        
+        @keyframes c16{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, 0); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, 0); 
+            }
+        }
+        
+        @keyframes c17{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -50px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, -50px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, -50px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, -50px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -50px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -50px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -50px); 
+            }
+        }
+        
+        @keyframes c18{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 50px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 50px, -100px); 
+            }
+        }
+        
+        @keyframes c19{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, 0); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 100px, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 170px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 170px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 170px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, 0); 
+            }
+        }
+        
+        @keyframes c20{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, -50px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 100px, -50px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 170px, -50px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 170px, -50px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 170px, -50px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, -50px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, -50px); 
+            }
+        }
+        
+        @keyframes c21{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 100px, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 170px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(-70px, 170px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 170px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, -170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(0, 100px, -100px); 
+            }
+        }
+        
+        @keyframes c22{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, 0); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, 0); 
+            }
+        }
+        
+        @keyframes c23{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -50px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -50px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, -50px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, -50px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, -50px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -50px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -50px); 
+            }
+        }
+        
+        @keyframes c24{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 170px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(50px, 100px, -100px); 
+            }
+        }
+        
+        @keyframes c25{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, 0); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 100px, 0); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 170px, 0); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 170px, 70px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 170px, 70px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, 70px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, 0); 
+            }
+        }
+        
+        @keyframes c26{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, -50px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 100px, -50px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 170px, -50px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 170px, -50px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 170px, -50px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, -50px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, -50px); 
+            }
+        }
+        
+        @keyframes c27{
+            0%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, -100px); 
+            }
+            
+            15%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 100px, -100px); 
+            }
+            
+            30%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 170px, -100px); 
+            }
+            
+            45%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(170px, 170px, -170px); 
+            }
+            
+            65%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 170px, -170px); 
+            }
+            
+            80%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, -170px); 
+            }
+            
+            100%{
+                transform: rotate3d(1, 0, 1, 45deg) translate3d(100px, 100px, -100px); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cube c1">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c2">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c3">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c4">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c5">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c6">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c7">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c8">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c9">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c10">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c11">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c12">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c13">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c14">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c15">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c16">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c17">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c18">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c19">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c20">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c21">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c22">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c23">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c24">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c25">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c26">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c27">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+</body>
+</html>
