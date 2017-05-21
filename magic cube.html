@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        
+        html,body{
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: perspective(1200px)
+        }
+        
+        .cube{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            top: 400px;
+            left: 600px;
+            transform-style: preserve-3d;
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg);
+        }
+        
+        .face{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #ccc;
+        }
+        
+        .f1{
+            transform: translate3d(0,0,25px);
+            background: #1D9099;
+        }
+        
+        .f2{
+            transform: translate3d(0,-25px,0) rotate3d(1,0,0,90deg);
+            background: #E79C10;
+        }
+        
+        .f3{
+            transform: translate3d(25px,0,0) rotate3d(0,1,0,90deg);
+            background: #D53A33;
+        }
+        
+        .c1{
+            animation: cube1 3s ease-in 0s infinite normal;
+        }
+        
+        .c2{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,0);
+            animation: cube2 3s ease-in 0s infinite normal;
+        }
+        
+        .c3{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,0);
+            animation: cube3 3s ease-in 0s infinite normal;
+        }
+        
+        .c4{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,0,-50px);
+            animation: cube4 3s ease-in 0s infinite normal;
+        }
+        
+        .c5{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-50px);
+            animation: cube5 3s ease-in 0s infinite normal;
+        }
+        
+        .c6{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,-50px);
+            animation: cube6 3s ease-in 0s infinite normal;
+        }
+        
+        .c7{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,0,-100px);
+            animation: cube7 3s ease-in 0s infinite normal;
+        }
+        
+        .c8{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-100px);
+            animation: cube8 3s ease-in 0s infinite normal;
+        }
+        
+        .c9{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,-100px);
+            animation: cube9 3s ease-in 0s infinite normal;
+        }
+        
+        .c10{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,0);
+            animation: cube10 3s ease-in 0s infinite normal;
+        }
+        
+        .c11{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,0);
+            animation: cube11 3s ease-in 0s infinite normal;
+        }
+        
+        .c12{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,0);
+            animation: cube12 3s ease-in 0s infinite normal;
+        }
+        
+        .c13{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-50px);
+            animation: cube13 3s ease-in 0s infinite normal;
+        }
+        
+        .c14{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-50px);
+            animation: cube14 3s ease-in 0s infinite normal;
+        }
+        
+        .c15{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-50px);
+            animation: cube15 3s ease-in 0s infinite normal;
+        }
+        
+        .c16{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-100px);
+            animation: cube16 3s ease-in 0s infinite normal;
+        }
+        
+        .c17{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-100px);
+            animation: cube17 3s ease-in 0s infinite normal;
+        }
+        
+        .c18{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-100px);
+            animation: cube18 3s ease-in 0s infinite normal;
+        }
+        
+        .c19{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,0);
+            animation: cube19 3s ease-in 0s infinite normal;
+        }
+        
+        .c20{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,0);
+            animation: cube20 3s ease-in 0s infinite normal;
+        }
+        
+        .c21{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,0);
+            animation: cube21 3s ease-in 0s infinite normal;
+        }
+        
+        .c22{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,-50px);
+            animation: cube22 3s ease-in 0s infinite normal;
+        }
+        
+        .c23{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-50px);
+            animation: cube23 3s ease-in 0s infinite normal;
+        }
+        
+        .c24{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,-50px);
+            animation: cube24 3s ease-in 0s infinite normal;
+        }
+        
+        .c25{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,-100px);
+            animation: cube25 3s ease-in 0s infinite normal;
+        }
+        
+        .c26{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-100px);
+            animation: cube26 3s ease-in 0s infinite normal;
+        }
+        .c27{
+            transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,-100px);
+            animation: cube27 3s ease-in 0s infinite normal;
+
+        }
+        
+        @keyframes cube27{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,-100px);
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-100px,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-100px,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-200px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-200px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-200px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,-100px);
+            }
+        }
+        @keyframes cube26{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-100px);
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-100px);
+            }
+        }
+        @keyframes cube25{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-100px,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-100px,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-200px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-200px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-200px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,-100px);
+            }
+        }
+        @keyframes cube1{
+            0%{
+                
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,0,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,0,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,100px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,100px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,100px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,0,0);
+            }
+        }
+        @keyframes cube2{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,0);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,0);
+            }
+        }
+        @keyframes cube3{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,0);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,0,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,0,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,100px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,100px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,100px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,0);
+            }
+        }
+        @keyframes cube4{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,0,-50px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,0,-50px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,0,-50px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,100px,-50px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,100px,-50px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,100px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,0,-50px);
+            }
+        }
+        @keyframes cube22{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,-50px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-100px,-50px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-100px,-50px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-200px,-50px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-200px,-50px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-200px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,-50px);
+            }
+        }
+        @keyframes cube23{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-50px);
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-50px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-50px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-50px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,-50px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,-50px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,-50px);
+            }
+        }
+        @keyframes cube5{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-50px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-50px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-50px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,-50px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,-50px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-50px);
+            }
+        }
+        @keyframes cube24{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,-50px);
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,-50px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-100px,-50px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-100px,-50px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-200px,-50px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-200px,-50px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-200px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,-50px);
+            }
+        }
+        @keyframes cube6{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,-50px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,0,-50px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,0,-50px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,100px,-50px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,100px,-50px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,100px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,-50px);
+            }
+        }
+        @keyframes cube7{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,0,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,0,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,0,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,100px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,100px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,100px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,0,-100px);
+            }
+        }
+        @keyframes cube8{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,100px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,-100px);
+            }
+        }
+        @keyframes cube9{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,0,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,0,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,100px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,100px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,100px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,-100px);
+            }
+        }
+        @keyframes cube10{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,0);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,0);
+            }
+        }
+        @keyframes cube11{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,0);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,0);
+            }
+        }
+        @keyframes cube12{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,0);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,0);
+            }
+        }
+        @keyframes cube13{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-50px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,-50px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,-50px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,-50px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-50px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-50px);
+            }
+        }
+        @keyframes cube14{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-50px);
+            }
+        }
+        @keyframes cube15{
+            0%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-50px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,-50px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,-50px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,-50px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-50px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-50px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-50px);
+            }
+        }
+        @keyframes cube16{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-50px);
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-50px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-50px,-100px);
+            }
+        }
+        @keyframes cube17{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-50px,-100px);
+            }
+        }
+        @keyframes cube18{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-100px);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,-100px);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,-200px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-50px,-200px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-200px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-100px);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-50px,-100px);
+            }
+        }
+        @keyframes cube19{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,0);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-100px,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-100px,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(-100px,-200px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-200px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-200px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(0,-100px,0);
+            }
+        }
+        @keyframes cube20{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,0,0);
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,0);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-200px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(50px,-100px,0);
+            }
+        }
+        @keyframes cube21{
+            0%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,0,0);
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,0);
+            }
+            16%{
+                
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-100px,0);
+            }
+            32%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-100px,100px);
+            }
+            48%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(200px,-200px,100px);
+            }
+            64%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-200px,100px);
+            }
+            80%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-200px,0);
+            }
+            100%{
+                transform: rotateY(-20deg) rotateX(-20deg) rotateZ(20deg) translate3d(100px,-100px,0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cube c1">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c2">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c3">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c4">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c5">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c6">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c7">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c8">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c9">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c10">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c11">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c12">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c13">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c14">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c15">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c16">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c17">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c18">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c19">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c20">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c21">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c22">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c23">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c24">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+    <div class="cube c25">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c26">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    <div class="cube c27">
+        <div class="face f1"></div>
+        <div class="face f2"></div>
+        <div class="face f3"></div>
+    </div>
+    
+</body>
+</html>
